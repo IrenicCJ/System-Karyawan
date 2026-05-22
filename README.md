@@ -1,45 +1,43 @@
-# Sistem Karyawan
+# Starter Aplikasi CodeIgniter 4
 
-Aplikasi monolith sederhana menggunakan CodeIgniter 4 dan SQL Server.
+## Apa itu CodeIgniter?
 
-## Fitur
+CodeIgniter adalah framework web full-stack PHP yang ringan, cepat, fleksibel, dan aman.
+Informasi lebih lanjut dapat ditemukan di [website resmi](https://codeigniter.com).
 
-- CRUD Data Karyawan
-- Menggunakan AJAX & DataTables
-- Menggunakan Query Join
-- Database SQL Server
-- Authentication Login
+Repository ini berisi starter aplikasi yang dapat diinstall menggunakan composer.
+Repository ini dibuat dari
+[repository development](https://github.com/codeigniter4/CodeIgniter4).
 
-## Tech Stack
+Informasi lebih lanjut mengenai rencana versi 4 dapat ditemukan di forum [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28).
 
-- CodeIgniter 4
-- PHP 8
-- SQL Server
-- Bootstrap
-- jQuery
-- DataTables
+Anda juga dapat membaca [user guide](https://codeigniter.com/user_guide/)
+yang sesuai dengan versi terbaru framework.
 
-## Cara Menjalankan Project
+## Instalasi & Update
 
-### 1. Clone Repository
+Gunakan perintah:
 
 ```bash
-git clone https://github.com/USERNAME/System-Karyawan.git
+composer create-project codeigniter4/appstarter
 ```
 
-### 2. Masuk Folder Project
+lalu jalankan:
 
 ```bash
-cd System-Karyawan
+composer update
 ```
 
-### 3. Install Dependency
+setiap ada versi terbaru framework.
 
-```bash
-composer install
+Saat melakukan update, periksa release notes untuk melihat apakah ada perubahan yang perlu diterapkan pada folder `app` Anda.
+File yang terdampak dapat disalin atau digabungkan dari:
+
+```txt
+vendor/codeigniter4/framework/app
 ```
 
-### 4. Setup Environment
+## Setup
 
 Copy file:
 
@@ -53,30 +51,25 @@ menjadi:
 .env
 ```
 
-Lalu sesuaikan konfigurasi database SQL Server.
+lalu sesuaikan konfigurasi aplikasi Anda, terutama `baseURL`
+dan pengaturan database.
 
-### 5. Jalankan Project
+## Perubahan Penting pada index.php
 
-```bash
-php spark serve
-```
+File `index.php` sekarang tidak lagi berada di root project!
+File tersebut telah dipindahkan ke dalam folder *public*
+untuk keamanan dan pemisahan komponen yang lebih baik.
 
-Project berjalan di:
+Artinya, Anda harus mengatur web server agar mengarah ke folder *public* project,
+bukan ke root project.
 
-```txt
-http://localhost:8080
-```
+Praktik yang lebih baik adalah mengatur virtual host agar mengarah ke folder tersebut.
+Praktik yang kurang baik adalah mengarahkan web server ke root project lalu mengakses *public/...* secara manual,
+karena hal tersebut dapat mengekspos logic aplikasi dan framework Anda.
 
-## Login
+## Kebutuhan Server
 
-```txt
-Username: admin
-Password: admin123
-```
+Dibutuhkan PHP versi 8.2 atau lebih tinggi dengan extension berikut terinstall:
 
-## Struktur Fitur
-
-- CRUD Karyawan
-- Authentication
-- AJAX DataTables
-- Query Join SQL Server
+- intl
+- mbstring
