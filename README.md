@@ -1,68 +1,121 @@
-# Starter Aplikasi CodeIgniter 4
+# System-Karyawan
 
-## Apa itu CodeIgniter?
+System-Karyawan adalah aplikasi monolith berbasis CodeIgniter 4 yang dibuat untuk membantu pengelolaan data karyawan dan departemen dalam sebuah perusahaan. Aplikasi ini menggunakan SQL Server sebagai database utama dan menerapkan fitur CRUD (Create, Read, Update, Delete) untuk mengelola data secara efisien.
 
-CodeIgniter adalah framework web full-stack PHP yang ringan, cepat, fleksibel, dan aman.
-Informasi lebih lanjut dapat ditemukan di [website resmi](https://codeigniter.com).
+## Deskripsi Aplikasi
 
-Repository ini berisi starter aplikasi yang dapat diinstall menggunakan composer.
+Aplikasi ini dirancang sebagai sistem sederhana untuk:
 
-## Instalasi & Update
+* Menambahkan data karyawan
+* Mengedit data karyawan
+* Menghapus data karyawan
+* Mengelola data departemen
+* Menampilkan data menggunakan DataTables
+* Melakukan pencarian dan sorting data secara dinamis menggunakan AJAX
+* Menghubungkan tabel karyawan dan departemen menggunakan JOIN query
 
-Gunakan perintah:
+Aplikasi dibuat menggunakan arsitektur monolith pada framework CodeIgniter 4 sehingga frontend dan backend berada dalam satu project yang sama.
+
+## Fitur Utama
+
+### CRUD Karyawan
+
+Pengguna dapat:
+
+* Menambahkan data karyawan baru
+* Mengubah data karyawan
+* Menghapus data karyawan
+* Melihat daftar seluruh karyawan
+
+### CRUD Departemen
+
+Pengguna dapat:
+
+* Menambahkan departemen
+* Mengubah data departemen
+* Menghapus departemen
+* Melihat daftar departemen
+
+### DataTables & AJAX
+
+Halaman karyawan menggunakan:
+
+* DataTables
+* AJAX request
+* Search realtime
+* Sorting data
+* Pagination otomatis
+
+### JOIN Query
+
+Data karyawan dihubungkan dengan tabel departemen menggunakan JOIN query untuk menampilkan nama departemen dari setiap karyawan.
+
+## Teknologi yang Digunakan
+
+* PHP 8.5
+* CodeIgniter 4
+* SQL Server
+* ODBC Driver 17 for SQL Server
+* Bootstrap
+* jQuery
+* DataTables
+
+## Struktur Database
+
+Database yang digunakan:
+
+* `karyawan`
+* `departemen`
+
+Relasi:
+
+* Setiap karyawan terhubung ke satu departemen melalui foreign key.
+
+## Cara Menjalankan Project
+
+### 1. Clone Repository
 
 ```bash
-composer create-project codeigniter4/appstarter
+git clone https://github.com/username/System-Karyawan.git
 ```
 
-lalu jalankan:
+### 2. Install Dependency
 
 ```bash
-composer update
+composer install
 ```
 
-setiap ada versi terbaru framework.
+### 3. Konfigurasi Database
 
-Saat melakukan update, periksa release notes untuk melihat apakah ada perubahan yang perlu diterapkan pada folder `app` Anda.
-File yang terdampak dapat disalin atau digabungkan dari:
+Edit file `.env`
+
+```env
+database.default.hostname = localhost
+database.default.database = db_karyawan
+database.default.username = sa
+database.default.password = yourpassword
+database.default.DBDriver = SQLSRV
+database.default.port = 1434
+```
+
+### 4. Jalankan Server
+
+```bash
+php spark serve
+```
+
+### 5. Akses Aplikasi
 
 ```txt
-vendor/codeigniter4/framework/app
+http://localhost:8080
 ```
 
-## Setup
+## Endpoint
 
-Copy file:
+* `/`
+* `/karyawan`
+* `/departemen`
 
-```txt
-env
-```
+## Tujuan Pembuatan
 
-menjadi:
-
-```txt
-.env
-```
-
-lalu sesuaikan konfigurasi aplikasi Anda, terutama `baseURL`
-dan pengaturan database.
-
-## Perubahan Penting pada index.php
-
-File `index.php` sekarang tidak lagi berada di root project!
-File tersebut telah dipindahkan ke dalam folder *public*
-untuk keamanan dan pemisahan komponen yang lebih baik.
-
-Artinya, Anda harus mengatur web server agar mengarah ke folder *public* project,
-bukan ke root project.
-
-Praktik yang lebih baik adalah mengatur virtual host agar mengarah ke folder tersebut.
-Praktik yang kurang baik adalah mengarahkan web server ke root project lalu mengakses *public/...* secara manual,
-karena hal tersebut dapat mengekspos logic aplikasi dan framework Anda.
-
-## Kebutuhan Server
-
-Dibutuhkan PHP versi 8.2 atau lebih tinggi dengan extension berikut terinstall:
-
-- intl
-- mbstring
+Project ini dibuat sebagai implementasi aplikasi monolith sederhana menggunakan CodeIgniter 4 dengan integrasi SQL Server, serta memenuhi kebutuhan fitur CRUD, DataTables AJAX, dan JOIN query.
