@@ -1,5 +1,4 @@
 # System-Karyawan
-# System-Karyawan
 
 Aplikasi monolith sederhana menggunakan CodeIgniter 4 dan SQL Server.
 
