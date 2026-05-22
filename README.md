@@ -6,13 +6,6 @@ CodeIgniter adalah framework web full-stack PHP yang ringan, cepat, fleksibel, d
 Informasi lebih lanjut dapat ditemukan di [website resmi](https://codeigniter.com).
 
 Repository ini berisi starter aplikasi yang dapat diinstall menggunakan composer.
-Repository ini dibuat dari
-[repository development](https://github.com/codeigniter4/CodeIgniter4).
-
-Informasi lebih lanjut mengenai rencana versi 4 dapat ditemukan di forum [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28).
-
-Anda juga dapat membaca [user guide](https://codeigniter.com/user_guide/)
-yang sesuai dengan versi terbaru framework.
 
 ## Instalasi & Update
 
